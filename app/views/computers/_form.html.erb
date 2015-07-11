@@ -1,0 +1,19 @@
+<%= simple_form_for @computer, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@computer[:name]) %>
+  <%= f.input :serie %>
+  <%= error_span(@computer[:serie]) %>
+  <%= f.input :description %>
+  <%= error_span(@computer[:description]) %>
+  <%= f.association :laboratory %>
+  <%= error_span(@computer[:laboratory_id]) %>
+  <%= f.input :picture, as: :file %>
+  <%= error_span(@computer[:picture]) %>
+  <!-- Automatic added attribute for tagging support -->
+  <%= f.input :tag_list %>
+  <%= error_span(@computer[:tag_list]) %>
+  
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                computers_path, :class => 'btn btn-default' %>
+<% end %>

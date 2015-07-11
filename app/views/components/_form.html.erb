@@ -1,0 +1,14 @@
+<%= simple_form_for @component, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@component[:name]) %>
+  <%= f.input :description %>
+  <%= error_span(@component[:description]) %>
+  <%= f.association :computer %>
+  <%= error_span(@component[:computer_id]) %>
+  <%= f.input :component_type %>
+  <%= error_span(@component[:component_type]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                components_path, :class => 'btn btn-default' %>
+<% end %>

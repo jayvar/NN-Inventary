@@ -1,0 +1,15 @@
+<%= simple_form_for @laboratory, :html => { :class => 'form-horizontal' } do |f| %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <%= f.input :name %>
+  <%= error_span(@laboratory[:name]) %>
+  <%= f.input :aforo %>
+  <%= error_span(@laboratory[:aforo]) %>
+  <%= f.input :description %>
+  <%= error_span(@laboratory[:description]) %>
+  <%= f.association :employe%>
+  <%= error_span(@laboratory[:employe_id]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                laboratories_path, :class => 'btn btn-default' %>
+<% end %>
