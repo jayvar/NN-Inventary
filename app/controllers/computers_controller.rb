@@ -41,6 +41,7 @@ class ComputersController < ApplicationController
     respond_with(@computer)
   end
 
+
   private
     def set_computer
       @computer = Computer.find(params[:id])
